@@ -75,7 +75,7 @@ def send_show_command(
     device = testbed.devices[device_name]
 
     try:
-        device.connect(learn_hostname=True, learn_os=True, log_stdout=True)
+        device.connect(learn_hostname=True, learn_os=True, log_stdout=False)
         output = device.parse(command)
     except Exception as e:
         output = f"Error executing command '{command}': {e}"
@@ -90,8 +90,8 @@ if __name__ == "__main__":
     result = send_show_command(
         command="show version",
         device_name="router1",
-        username="admin",
-        password="cisco123",
+        username="cisco",
+        password="cisco",
         ip_address="10.0.0.1",
         network_os="iosxe",
     )
